@@ -1,2 +1,2 @@
 # Meeting-organization-and-managment-service
-Java web application written using Spring Framework and React
+Fullstack Java application written using Spring Framework and React
