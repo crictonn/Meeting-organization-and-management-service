@@ -1,5 +1,6 @@
 package com.example.meetingsmanagmentandorganization;
 
+import com.example.meetingsmanagmentandorganization.jwt.JwtCore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

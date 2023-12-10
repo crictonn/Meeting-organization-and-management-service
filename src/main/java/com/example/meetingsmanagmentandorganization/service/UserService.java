@@ -1,5 +1,8 @@
-package com.example.meetingsmanagmentandorganization;
+package com.example.meetingsmanagmentandorganization.service;
 
+import com.example.meetingsmanagmentandorganization.model.UserDetailsImplementation;
+import com.example.meetingsmanagmentandorganization.model.User;
+import com.example.meetingsmanagmentandorganization.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

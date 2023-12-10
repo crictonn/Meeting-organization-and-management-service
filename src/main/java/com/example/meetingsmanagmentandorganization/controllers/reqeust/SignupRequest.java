@@ -1,4 +1,4 @@
-package com.example.meetingsmanagmentandorganization;
+package com.example.meetingsmanagmentandorganization.controllers.reqeust;
 
 import lombok.Data;
 

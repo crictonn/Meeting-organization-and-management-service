@@ -1,4 +1,4 @@
-package com.example.meetingsmanagmentandorganization;
+package com.example.meetingsmanagmentandorganization.jwt;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;

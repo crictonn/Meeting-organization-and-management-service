@@ -1,5 +1,10 @@
-package com.example.meetingsmanagmentandorganization;
+package com.example.meetingsmanagmentandorganization.controllers;
 
+import com.example.meetingsmanagmentandorganization.controllers.reqeust.SigninRequest;
+import com.example.meetingsmanagmentandorganization.controllers.reqeust.SignupRequest;
+import com.example.meetingsmanagmentandorganization.jwt.JwtCore;
+import com.example.meetingsmanagmentandorganization.model.User;
+import com.example.meetingsmanagmentandorganization.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

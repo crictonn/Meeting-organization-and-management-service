@@ -1,4 +1,4 @@
-package com.example.meetingsmanagmentandorganization;
+package com.example.meetingsmanagmentandorganization.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -12,9 +12,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
     private String username;
 
+    @Column
     private String email;
 
+    @Column
     private String password;
 }
