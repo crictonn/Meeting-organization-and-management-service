@@ -14,12 +14,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 @RequestMapping("/auth")
 public class SecurityController {
 
@@ -41,6 +39,10 @@ public class SecurityController {
     @Autowired
     public void setAuthenticationManager(AuthenticationManager authenticationManager) {
         this.authenticationManager = authenticationManager;
+    }
+    @GetMapping()
+    public String lobby(){
+        return "lobby";
     }
 
     @Autowired
@@ -64,10 +66,18 @@ public class SecurityController {
         user.setUsername(signupRequest.getUsername());
         user.setEmail(signupRequest.getEmail());
         user.setPassword(hashed);
+        if("admin".equalsIgnoreCase(signupRequest.getUsername()))
+            user.setRole("ADMIN");
+        else
+            user.setRole("USER");
         userRepository.save(user);
 
         return ResponseEntity.ok("Signup success");
     }
+    @GetMapping("/signup")
+        public String signup(){
+            return "signup";
+        }
 
     @PostMapping("/signin")
     ResponseEntity<?> signin(@RequestBody SigninRequest signinRequest){
@@ -80,5 +90,9 @@ public class SecurityController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtCore.generateToken(authentication);
         return ResponseEntity.ok(jwt);
+    }
+    @GetMapping("/signin")
+    public String signin(){
+        return "signin";
     }
 }

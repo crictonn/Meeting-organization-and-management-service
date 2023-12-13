@@ -15,13 +15,15 @@ public class UserDetailsImplementation implements UserDetails {
     private String username;
     private String email;
     private String password;
+    private String role;
 
     public static UserDetailsImplementation build(User user){
         return new UserDetailsImplementation(
             user.getId(),
             user.getUsername(),
             user.getEmail(),
-            user.getPassword());
+            user.getPassword(),
+            user.getRole());
     }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
