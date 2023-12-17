@@ -61,7 +61,6 @@
                 <button class="btn" type="submit" style="font-weight: bold">
                     Выход
                 </button>
-<#--                <a href="/auth">Выход</a>-->
             </form>
         </li>
     </ul>

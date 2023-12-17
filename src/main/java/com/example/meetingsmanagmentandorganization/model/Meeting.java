@@ -20,7 +20,7 @@ public class Meeting {
     @Column(name ="name", length = 30, nullable = false)
     private String name;
 
-    @Column(name = "owner")
+    @Column(name = "owner", length = 40)
     private String owner;
 
     @Column(name ="description", length = 300)

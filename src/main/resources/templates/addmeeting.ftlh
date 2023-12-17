@@ -67,16 +67,23 @@
 </div>
 
 <div class="content">
-    <div>
-        <h1>Мои встречи</h1>
-    </div>
-    <div>
-        <a href="/secured/addmeeting">Добавить встречу</a>
-    </div>
-    <div class="meeting">
-        <h2>Встреча 1</h2>
-        <p>Описание встречи 1</p>
-    </div>
+    <form action="/secured/addmeeting" method="post">
+        <div>
+            <input type="text" required name="meetingName" placeholder="Название мероприятия">
+        </div>
+        <div>
+            <input type="text" name = "description" placeholder="Описание">
+        </div>
+        <div>
+            <input type="date" name = "date" required>
+        </div>
+        <div>
+            <button type="submit">
+                <span>Добавить</span>
+            </button>
+        </div>
+    </form>
+</div>
 
 </div>
 </body>
