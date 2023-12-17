@@ -61,17 +61,18 @@ public class SecurityConfigurator {
                 .exceptionHandling(exceptions -> exceptions
                         .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
                 )
-                .sessionManagement(session -> session
-                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                )
+//                .sessionManagement(session -> session
+//                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+//                )
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/auth/**").permitAll()
 //                        .requestMatchers("/secured/user").fullyAuthenticated()
-                        .requestMatchers("/secured/user").permitAll()
+//                        .requestMatchers("/secured/user").permitAll()
                         .requestMatchers("/resources/js/**").permitAll()
                         .anyRequest().permitAll()
                 )
-                .addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class)
+                .logout((logout) -> logout.logoutSuccessUrl("/auth"));
         return http.build();
     }
 }

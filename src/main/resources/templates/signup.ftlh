@@ -84,7 +84,7 @@
             <div class="col-lg-6 align-justify-center pr-4 pl-0 contact-form">
                 <div class="">
                     <h2 class="mb-3 font-weight-light">Регистрация</h2>
-                    <form class="mt-3">
+                    <form class="mt-3" action="/auth/signup" method="post">
                         <div class="row">
 <#--                            <script type="application/json" src = /js/signup.js></script>-->
 <#--                            <script type="application/json" src = /js/handle.js></script>-->
@@ -93,18 +93,17 @@
 <#--                            </script>-->
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <input class="form-control" type="text" placeholder="Имя пользователя"
-                                           onchange="">
+                                    <input class="form-control" type="text" name = "username" placeholder="Имя пользователя">
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <input class="form-control" type="email" placeholder="Email">
+                                    <input class="form-control" type="email" name = "email" placeholder="Email">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <input class="form-control" type="password" placeholder="Пароль">
+                                    <input class="form-control" type="password" name = "password" placeholder="Пароль">
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -113,9 +112,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-12">
-                                <script src = "/js/handle.js" type="application/json"></script>
-                                <button type="submit" class="btn btn-md btn-block btn-danger-gradiant text-white border-0"
-                                onclick="handle()">
+                                <button type="submit" class="btn btn-md btn-block btn-danger-gradiant text-white border-0">
                                     <span>Зарегистрироваться</span></button>
                             </div>
                         </div>

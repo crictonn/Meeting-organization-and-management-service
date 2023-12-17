@@ -153,15 +153,14 @@
     <div class="row">
 
         <div class="col-md-offset-3 col-md-6">
-            <script src="/js/signin.js" type="application/json"></script>
-            <form class="form-horizontal" id="signinForm">
+            <form class="form-horizontal" id="signinForm" action="/auth/signin" method="post">
                 <span class="heading">АВТОРИЗАЦИЯ</span>
                 <div class="form-group">
                     <input type="text" class="form-control" id="username" name="username" placeholder="Username">
                     <i class="fa fa-user"></i>
                 </div>
                 <div class="form-group help">
-                    <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Password">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                     <i class="fa fa-lock"></i>
                 </div>
                 <div class="form-group">

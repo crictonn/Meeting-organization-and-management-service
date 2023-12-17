@@ -52,19 +52,24 @@
     <ul>
         <li><a href="/secured/user">Профиль</a></li>
         <li><a href="/secured/meetings">Ваши встречи</a></li>
-        <#if role == "ADMIN">
-            <li><a href="/secured/manageusers">Пользователи</a></li>
-        </#if>
-
         <li>
             <form action="/logout" method="post">
-                <button class="btn" type="submit" style="font-weight: bold">
+                <button class="btn" type="submit">
                     Выход
                 </button>
-<#--                <a href="/auth">Выход</a>-->
             </form>
         </li>
     </ul>
+</div>
+
+<div class="content">
+    <h1>Мои встречи</h1>
+
+    <div class="meeting">
+        <h2>Встреча 1</h2>
+        <p>Описание встречи 1</p>
+    </div>
+
 </div>
 </body>
 </html>
