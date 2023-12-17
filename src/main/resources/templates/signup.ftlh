@@ -26,10 +26,6 @@
         color: #3e4555;
     }
 
-    .bform .subtitle {
-        color: #8d97ad;
-        line-height: 24px;
-    }
 
     .bform a {
         text-decoration: none;
@@ -58,27 +54,11 @@
         font-size: 16px;
     }
 
-    .bform .bg-facebook {
-        background-color: #3b5a9a;
-    }
-
-    .bform .bg-twitter {
-        background-color: #56adf2;
-    }
 
     .bform .text-danger {
         color: #ff4d7e !important;
     }
 
-    .bform .right-image {
-        background-position: center bottom;
-        background-size: cover;
-        background-repeat: no-repeat;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        top: 0;
-    }
 
     @media (max-width: 1023px) {
         .bform .contact-form {
@@ -94,12 +74,7 @@
         }
     }
 
-    @media (max-width: 1023px) {
-        .bform .right-image {
-            position: relative;
-            bottom: -95px;
-        }
-    }
+
 </style>
 
 <div class="bform py-5">
@@ -108,57 +83,52 @@
         <div class="container">
             <div class="col-lg-6 align-justify-center pr-4 pl-0 contact-form">
                 <div class="">
-                    <h2 class="mb-3 font-weight-light">Get Register For Free</h2>
-                    <h6 class="subtitle font-weight-normal">Lorem ipsum dolor sit amet, adipiscing.</h6>
+                    <h2 class="mb-3 font-weight-light">Регистрация</h2>
                     <form class="mt-3">
                         <div class="row">
+<#--                            <script type="application/json" src = /js/signup.js></script>-->
+<#--                            <script type="application/json" src = /js/handle.js></script>-->
+<#--                            <script src = "/js/signup.js" type="application/json"></script>-->
+<#--                            <script type="application/javascript" src ="/js/signup.js">-->
+<#--                            </script>-->
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <input class="form-control" type="text" placeholder="full name">
+                                    <input class="form-control" type="text" placeholder="Имя пользователя"
+                                           onchange="">
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <input class="form-control" type="email" placeholder="email address">
+                                    <input class="form-control" type="email" placeholder="Email">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <input class="form-control" type="password" placeholder="password">
+                                    <input class="form-control" type="password" placeholder="Пароль">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <input class="form-control" type="password" placeholder="confirm password">
+                                    <input class="form-control" type="password" placeholder="Подтвердите пароль">
                                 </div>
                             </div>
                             <div class="col-lg-12">
-                                <button type="submit" class="btn btn-md btn-block btn-danger-gradiant text-white border-0"><span> Create Account</span></button>
-                                <!-- -->
+                                <script src = "/js/handle.js" type="application/json"></script>
+                                <button type="submit" class="btn btn-md btn-block btn-danger-gradiant text-white border-0"
+                                onclick="handle()">
+                                    <span>Зарегистрироваться</span></button>
                             </div>
                         </div>
                     </form>
                     <div class="row">
                         <div class="col-lg-12 text-center mt-4">
-                            <h6 class="font-weight-normal">Signup with Social Accounts</h6>
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6">
-                                    <a href="#" class="btn btn-block bg-facebook text-white mt-3">Facebook</a>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <a href="#" class="btn btn-block bg-twitter text-white mt-3">Twitter</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 text-center mt-4">
-                            Already have an account? <a href="#" class="text-danger">Sign In</a>
+                            Уже есть аккаунт? <a href="/auth/signin" class="text-danger">Войдите</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-6 right-image pl-3" style="background-image:url(https://bootstraptema.ru/images/demo/600x600/demo1.jpeg);">
-        </div>
+
     </div>
 </div>
 </body>

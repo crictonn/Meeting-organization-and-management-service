@@ -26,6 +26,11 @@ public class User {
     @Column(name = "role", length = 10, nullable = false)
     private String role;
 
-    @ManyToMany(mappedBy = "participants")
+    @ManyToMany
+    @JoinTable(
+            name = "users_participations",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "participant_id")
+    )
     private Set<Meeting> participations;
 }

@@ -67,9 +67,8 @@ public class SecurityConfigurator {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/auth/**").permitAll()
 //                        .requestMatchers("/secured/user").fullyAuthenticated()
-                        // вот тут нужно починить токен и потом только чтобы аутентифицированный мог
                         .requestMatchers("/secured/user").permitAll()
-                        .requestMatchers("/test").permitAll()
+                        .requestMatchers("/resources/js/**").permitAll()
                         .anyRequest().permitAll()
                 )
                 .addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class);
