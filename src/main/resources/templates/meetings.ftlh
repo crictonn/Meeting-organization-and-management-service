@@ -32,11 +32,16 @@
             padding: 20px;
         }
 
-        .meeting {
+        .meetings {
+            width: 60%;
             margin-bottom: 20px;
             padding: 10px;
             background-color: #f9f9f9;
             border: 1px solid #ddd;
+            display: table;
+        }
+        .meetingElement{
+            display: table-cell;
         }
 
         .meeting h2 {
@@ -73,11 +78,39 @@
     <div>
         <a href="/secured/addmeeting">Добавить встречу</a>
     </div>
-    <div class="meeting">
-        <h2>Встреча 1</h2>
-        <p>Описание встречи 1</p>
-    </div>
+    <div>
+        <script>
+            function areYouSure() {confirm("Вы уверены, что хотите удалить событие?");}
+        </script>
+        <#list userMeetings as meets>
+            <div class = "meetings">
+                <div>
+                    <h2>${meets.name}</h2>
+                </div>
+                <div class="meetingElement">
+                    ${meets.date}
+                </div>
+                <div class="meetingElement">
+                    ${meets.description}
+                </div>
+                <div class="meetingElement">
+                    ${meets.owner}
+                </div>
+                <div class="meetingElement">
+                    <a href="/secured/editmeeting/${meets.id}">Изменить</a>
+                </div>
+                <#if username == meets.owner>
+                    <div class="meetingElement">
+                        <form action="/secured/meetings" method="post">
+                            <input name="id" hidden="hidden" value="${meets.id}">
+                            <button onclick="areYouSure()">Удалить</button>
+                        </form>
+                    </div>
+                </#if>
+            </div>
 
+        </#list>
+</div>
 </div>
 </body>
 </html>

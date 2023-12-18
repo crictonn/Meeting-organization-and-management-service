@@ -32,4 +32,7 @@ public class Meeting {
     @ManyToMany(mappedBy = "participations")
     private Set<User> participants;
 
+    public String getName() {
+        return name;
+    }
 }
