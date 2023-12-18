@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Preview страницы</title>
+    <title>Лобби встреч</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -24,6 +24,8 @@
         }
         .button-container {
             margin-top: 20px;
+            display:table;
+            width: 80%;
         }
         .button {
             display: inline-block;
@@ -33,16 +35,26 @@
             text-decoration: none;
             border-radius: 4px;
             font-size: 16px;
+            
+        }
+        .test{
+            display: table-cell;
+            justify-content: center;	/* horizontal, when using flex-direction: row; */
+            align-items: center; 
         }
     </style>
 </head>
 <body>
 <div class="preview-container">
-    <h1>Заголовок страницы</h1>
-    <p>Текст и содержимое страницы будут отображаться здесь.</p>
+    <h1>Сервис управления встречами</h1>
+    <p>Здравствуйте! Пожалуйста, зарегистрируйтесь или войдите в аккаунт</p>
     <div class="button-container">
-        <a href="/auth/signin" class="button">Login</a>
-        <a href="/auth/signup" class="button">Signup</a>
+        <div class = "test">
+            <a href="/auth/signin" class="button">Вход</a>
+        </div>
+        <div class = "test">
+            <a href="/auth/signup" class="button">Регистрация</a>
+        </div>
     </div>
 </div>
 </body>

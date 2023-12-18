@@ -86,11 +86,14 @@
                     <h2 class="mb-3 font-weight-light">Регистрация</h2>
                     <form class="mt-3" action="/auth/signup" method="post">
                         <div class="row">
-<#--                            <script type="application/json" src = /js/signup.js></script>-->
-<#--                            <script type="application/json" src = /js/handle.js></script>-->
-<#--                            <script src = "/js/signup.js" type="application/json"></script>-->
-<#--                            <script type="application/javascript" src ="/js/signup.js">-->
-<#--                            </script>-->
+                            <script>
+                                function checkPasswords(password, passwordCheck){
+                                    if(password !== passwordCheck){
+                                        alert("Пароли должны совпадать")
+                                    }
+                                }
+                            </script>
+
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <input class="form-control" type="text" name = "username" placeholder="Имя пользователя">
@@ -108,7 +111,8 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <input class="form-control" type="password" placeholder="Подтвердите пароль">
+                                    <input class="form-control" type="password" name ="passwordCheck"
+                                           placeholder="Подтвердите пароль" onchange="checkPasswords(password, passwordCheck)">
                                 </div>
                             </div>
                             <div class="col-lg-12">

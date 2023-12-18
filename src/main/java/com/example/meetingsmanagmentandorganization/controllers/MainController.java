@@ -1,6 +1,7 @@
 package com.example.meetingsmanagmentandorganization.controllers;
 
 import com.example.meetingsmanagmentandorganization.model.Meeting;
+import com.example.meetingsmanagmentandorganization.model.User;
 import com.example.meetingsmanagmentandorganization.repository.MeetingRepository;
 import com.example.meetingsmanagmentandorganization.repository.UserRepository;
 import jakarta.servlet.http.HttpSession;
@@ -54,10 +55,40 @@ public class MainController {
         if(session.getAttribute("username")==null){
             return "redirect:/auth";
         }
+        model.addAttribute("users", userRepository.findAll());
         model.addAttribute("role", session.getAttribute("role"));
         model.addAttribute("username", session.getAttribute("username"));
         return "manageusers";
     }
+    @PostMapping("/manageusers")
+    public String userManage(@RequestParam Long id){
+        userRepository.deleteById(id);
+        return "redirect:/secured/manageusers";
+    }
+
+    @GetMapping("/edituser/{id}")
+    public String editUser(HttpSession session, Model model, @PathVariable("id") Long id){
+        if(session.getAttribute("username")==null){
+            return "redirect:/auth";
+        }
+        model.addAttribute("role", session.getAttribute("role"));
+        model.addAttribute("username", session.getAttribute("username"));
+        model.addAttribute("user", userRepository.findUserById(id));
+
+        return "edituser";
+    }
+
+    @PostMapping("/edituser/{id}")
+    public String editUser(@PathVariable Long id, @RequestParam String role, Model model){
+        User user = userRepository.findUserById(id);
+        user.setRole(role);
+
+        userRepository.save(user);
+        model.addAttribute("user", user);
+
+        return "redirect:/secured/manageusers";
+    }
+
     @GetMapping("/addmeeting")
     public String addMeeting(HttpSession session, Model model){
         if(session.getAttribute("username")==null){

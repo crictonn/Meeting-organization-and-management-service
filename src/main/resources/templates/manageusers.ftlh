@@ -32,11 +32,16 @@
             padding: 20px;
         }
 
-        .meeting {
+        .meetings {
+            width: 60%;
             margin-bottom: 20px;
             padding: 10px;
             background-color: #f9f9f9;
             border: 1px solid #ddd;
+            display: table;
+        }
+        .meetingElement{
+            display: table-cell;
         }
 
         .meeting h2 {
@@ -67,13 +72,48 @@
 </div>
 
 <div class="content">
-    <h1>Пользователи</h1>
-
-    <div class="meeting">
-<#--        Сюда будем выводить юзеров и редачить их-->
-        <h2>Встреча 1</h2>
-        <p>Описание встречи 1</p>
+    <div>
+        <h1>Пользователи</h1>
     </div>
+    <div>
+        <#list users as user>
+            <script>
+                function areYouSure(/*user*/) {
+                    let youSure = confirm("Вы уверены, что хотите пользователя ${user.username}?");
+                    // if(!youSure){
+                    //     user.id = null;
+                    // }
+                }
+            </script>
+            <div class = "meetings">
+                <div>
+                    <h2>${user.id}</h2>
+                </div>
+                <div class="meetingElement">
+                    ${user.username}
+                </div>
+                <div class="meetingElement">
+                    ${user.email}
+                </div>
+                <div class="meetingElement">
+                    ${user.role}
+                </div>
+                <div class="meetingElement">
+                    <a href="/secured/edituser/${user.id}">Изменить</a>
+                </div>
+                <#if role == "ADMIN" && user.username != username>
+                    <div class="meetingElement">
+                        <form action="/secured/manageusers" method="post">
+                            <button onclick="areYouSure()">Удалить</button>
+                            <input name="id" hidden="hidden" value="${user.id}">
+                        </form>
+                    </div>
+                </#if>
+            </div>
+
+        </#list>
+    </div>
+</div>
 
 </div>
 </body>

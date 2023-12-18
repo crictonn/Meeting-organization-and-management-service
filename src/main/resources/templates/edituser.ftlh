@@ -65,10 +65,43 @@
         </li>
     </ul>
 </div>
-<div>
-    <div>
-        <span>Здравствуйте, ${username}</span>
-    </div>
+<div class="content">
+    <form action="/secured/edituser/${id}" method="post">
+        <div>
+<#--            <label>Id</label>-->
+            <label>
+                <span>ID</span>
+                <input name = "ID" value="${id}" readonly>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>Username</span>
+                <input type="text" required name="username" value="${user.username}" readonly>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>Email</span>
+                <input type="text" name = "email" value="${user.email}" readonly>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>Username</span>
+<#--            <input type="" name = "role" required value="${user.role}">-->
+                <select id = "role" name = "role">
+                    <option value="ADMIN">Admin</option>
+                    <option value="USER">User</option>
+                </select>
+            </label>
+        </div>
+        <div>
+            <button type="submit">
+                <span>Сохранить</span>
+            </button>
+        </div>
+    </form>
 </div>
 </body>
 </html>
